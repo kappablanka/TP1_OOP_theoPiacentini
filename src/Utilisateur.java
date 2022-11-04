@@ -28,16 +28,6 @@ public abstract class Utilisateur {
         this.hashMotDePasse = hashMotDePasse;
     }
 
-    public Utilisateur Pseudo(String Pseudo) {
-        setPseudo(Pseudo);
-        return this;
-    }
-
-    public Utilisateur hashMotDePasse(String hashMotDePasse) {
-        setHashMotDePasse(hashMotDePasse);
-        return this;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == this)

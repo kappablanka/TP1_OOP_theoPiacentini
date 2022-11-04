@@ -1,17 +1,20 @@
+import java.sql.Date;
 import java.util.Objects;
 
-public class Titres {
+public class Titre {
     private int duree;
     private String nomTitre;
     private String styleTitre;
+    private Date dateSortie;
 
-    public Titres() {
+    public Titre() {
     }
 
-    public Titres(int duree, String nomTitre, String styleTitre) {
+    public Titre(int duree, String nomTitre, String styleTitre, Date dateSortie) {
         this.duree = duree;
         this.nomTitre = nomTitre;
         this.styleTitre = styleTitre;
+        this.dateSortie = dateSortie;
     }
 
     public int getDuree() {
@@ -38,31 +41,24 @@ public class Titres {
         this.styleTitre = styleTitre;
     }
 
-    public Titres duree(int duree) {
-        setDuree(duree);
-        return this;
+    public Date getDateSortie() {
+        return this.dateSortie;
     }
 
-    public Titres nomTitre(String nomTitre) {
-        setNomTitre(nomTitre);
-        return this;
-    }
-
-    public Titres styleTitre(String styleTitre) {
-        setStyleTitre(styleTitre);
-        return this;
+    public void setDateSortie(Date dateSortie) {
+        this.dateSortie = dateSortie;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof Titres)) {
+        if (!(o instanceof Titre)) {
             return false;
         }
-        Titres titres = (Titres) o;
-        return duree == titres.duree && Objects.equals(nomTitre, titres.nomTitre)
-                && Objects.equals(styleTitre, titres.styleTitre);
+        Titre titre = (Titre) o;
+        return duree == titre.duree && Objects.equals(nomTitre, titre.nomTitre)
+                && Objects.equals(styleTitre, titre.styleTitre);
     }
 
     @Override

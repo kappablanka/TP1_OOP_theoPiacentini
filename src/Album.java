@@ -28,16 +28,6 @@ public class Album {
         this.styleAlbum = styleAlbum;
     }
 
-    public Album nomAlbum(String nomAlbum) {
-        setNomAlbum(nomAlbum);
-        return this;
-    }
-
-    public Album styleAlbum(String styleAlbum) {
-        setStyleAlbum(styleAlbum);
-        return this;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == this)

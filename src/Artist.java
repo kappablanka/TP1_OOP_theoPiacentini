@@ -18,11 +18,6 @@ public class Artist extends Utilisateur {
         this.nom = nom;
     }
 
-    public Artist nom(String nom) {
-        setNom(nom);
-        return this;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == this)

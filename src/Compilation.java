@@ -33,11 +33,6 @@ public class Compilation {
         return this;
     }
 
-    public Compilation styleCompilation(String styleCompilation) {
-        setStyleCompilation(styleCompilation);
-        return this;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == this)

@@ -8,3 +8,5 @@ bin/Playlist.class
 bin/Utilisateur.class
 bin/Client.class
 
+bin/Client.class
+bin/Titre.class

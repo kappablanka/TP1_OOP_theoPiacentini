@@ -28,16 +28,6 @@ public class Playlist {
         this.stylePlaylist = stylePlaylist;
     }
 
-    public Playlist nomPlaylist(String nomPlaylist) {
-        setNomPlaylist(nomPlaylist);
-        return this;
-    }
-
-    public Playlist stylePlaylist(String stylePlaylist) {
-        setStylePlaylist(stylePlaylist);
-        return this;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == this)

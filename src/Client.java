@@ -2,6 +2,7 @@ import java.util.Objects;
 
 public class Client extends Utilisateur {
     private String typeAbbonement;
+    private int dureeEcoute = 0;
 
     public Client() {
     }
@@ -18,9 +19,12 @@ public class Client extends Utilisateur {
         this.typeAbbonement = typeAbbonement;
     }
 
-    public Client typeAbbonement(String typeAbbonement) {
-        setTypeAbbonement(typeAbbonement);
-        return this;
+    public int getDureeEcoute() {
+        return this.dureeEcoute;
+    }
+
+    public void setDureeEcoute(int dureeEcoute) {
+        this.dureeEcoute = dureeEcoute;
     }
 
     @Override
@@ -44,6 +48,10 @@ public class Client extends Utilisateur {
         return "{" +
                 " typeAbbonement='" + getTypeAbbonement() + "'" +
                 "}";
+    }
+
+    public void Ecoute(Titre titreEoutee) {
+        this.dureeEcoute += titreEoutee.getDuree();
     }
 
 }
