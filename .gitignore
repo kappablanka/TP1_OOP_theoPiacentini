@@ -6,5 +6,4 @@ bin/Artist.class
 bin/Compilation.class
 bin/Playlist.class
 bin/Utilisateur.class
-src/Artist.java
 bin/Client.class
