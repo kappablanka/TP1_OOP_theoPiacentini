@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Utilisateur {
+public abstract class Utilisateur {
     private String Pseudo;
     private String hashMotDePasse;
 
