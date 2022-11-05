@@ -22,4 +22,13 @@ public class Remix extends Titre {
             a.setSolde(this.getSolde() + a.getSolde());
         }
     }
+
+    public Artist getArtisteRemixant() {
+        return this.artisteRemixant;
+    }
+
+    public void setArtisteRemixant(Artist artisteRemixant) {
+        this.artisteRemixant = artisteRemixant;
+    }
+
 }

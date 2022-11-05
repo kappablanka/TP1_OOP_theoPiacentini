@@ -25,4 +25,12 @@ public class Reprise extends Titre {
         }
     }
 
+    public Artist getArtistReprenant() {
+        return this.artistReprenant;
+    }
+
+    public void setArtistReprenant(Artist artistReprenant) {
+        this.artistReprenant = artistReprenant;
+    }
+
 }
