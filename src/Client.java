@@ -69,11 +69,6 @@ public class Client extends Utilisateur {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(typeAbbonement, dureeEcoute, soldeDue);
-    }
-
-    @Override
     public String toString() {
         return "{" +
                 " typeAbbonement='" + getTypeAbbonement() + "'" +

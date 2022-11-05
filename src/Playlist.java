@@ -68,11 +68,6 @@ public class Playlist {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(nomPlaylist, stylePlaylist, listeTitres);
-    }
-
-    @Override
     public String toString() {
         return "{" +
                 " nomPlaylist='" + getNomPlaylist() + "'" +

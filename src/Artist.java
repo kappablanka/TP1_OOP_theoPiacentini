@@ -56,11 +56,6 @@ public class Artist extends Utilisateur {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(nom);
-    }
-
-    @Override
     public String toString() {
         return "{" +
                 " nom='" + getNom() + "'" +

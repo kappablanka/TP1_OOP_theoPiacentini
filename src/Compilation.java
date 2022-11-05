@@ -68,11 +68,6 @@ public class Compilation {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(nomCompilation, styleCompilation, listeTitres);
-    }
-
-    @Override
     public String toString() {
         return "{" +
                 " nomCompilation='" + getNomCompilation() + "'" +

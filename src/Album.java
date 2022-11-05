@@ -51,11 +51,6 @@ public class Album {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(nomAlbum, styleAlbum, listeTitres);
-    }
-
-    @Override
     public String toString() {
         return "{" +
                 " nomAlbum='" + getNomAlbum() + "'" +

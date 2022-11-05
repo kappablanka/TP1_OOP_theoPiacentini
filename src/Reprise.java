@@ -1,12 +1,12 @@
+import java.util.Date;
 import java.util.Objects;
 
 public class Reprise extends Titre {
     private Artist artistReprenant;
 
-    public Reprise() {
-    }
-
-    public Reprise(Artist artistReprenant) {
+    public Reprise(int duree, String nomTitre, String styleTitre, Date dateSortie, Artist artist, double solde,
+            Artist artistReprenant) {
+        super(duree, nomTitre, styleTitre, dateSortie, artistReprenant, solde);
         this.artistReprenant = artistReprenant;
     }
 
@@ -18,11 +18,6 @@ public class Reprise extends Titre {
         this.artistReprenant = artistReprenant;
     }
 
-    public Reprise artistReprenant(Artist artistReprenant) {
-        setArtistReprenant(artistReprenant);
-        return this;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -32,18 +27,6 @@ public class Reprise extends Titre {
         }
         Reprise reprise = (Reprise) o;
         return Objects.equals(artistReprenant, reprise.artistReprenant);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(artistReprenant);
-    }
-
-    @Override
-    public String toString() {
-        return "{" +
-                " artistReprenant='" + getArtistReprenant() + "'" +
-                "}";
     }
 
 }

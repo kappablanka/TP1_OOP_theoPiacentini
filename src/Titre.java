@@ -1,4 +1,5 @@
-import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Objects;
 
 public abstract class Titre {
@@ -8,9 +9,7 @@ public abstract class Titre {
     private Date dateSortie;
     private Artist artist;
     private double solde;
-
-    public Titre() {
-    }
+    private ArrayList<Artist> featurings = new ArrayList<>();
 
     public Titre(int duree, String nomTitre, String styleTitre, Date dateSortie, Artist artist, double solde) {
         this.duree = duree;
@@ -19,6 +18,12 @@ public abstract class Titre {
         this.dateSortie = dateSortie;
         this.artist = artist;
         this.solde = solde;
+    }
+
+    public Titre(int duree, String nomTitre, String styleTitre, Date dateSortie, Artist artist, double solde,
+            ArrayList<Artist> featuring) {
+        this(duree, nomTitre, styleTitre, dateSortie, artist, solde);
+        this.featurings = featuring;
     }
 
     public int getDuree() {
@@ -69,34 +74,12 @@ public abstract class Titre {
         this.solde = solde;
     }
 
-    public Titre duree(int duree) {
-        setDuree(duree);
-        return this;
+    public ArrayList<Artist> getFeaturings() {
+        return this.featurings;
     }
 
-    public Titre nomTitre(String nomTitre) {
-        setNomTitre(nomTitre);
-        return this;
-    }
-
-    public Titre styleTitre(String styleTitre) {
-        setStyleTitre(styleTitre);
-        return this;
-    }
-
-    public Titre dateSortie(Date dateSortie) {
-        setDateSortie(dateSortie);
-        return this;
-    }
-
-    public Titre artist(Artist artist) {
-        setArtist(artist);
-        return this;
-    }
-
-    public Titre solde(double solde) {
-        setSolde(solde);
-        return this;
+    public void setFeaturings(ArrayList<Artist> featurings) {
+        this.featurings = featurings;
     }
 
     @Override
