@@ -8,7 +8,6 @@ public abstract class Titre {
     private String styleTitre;
     private LocalDate dateSortie;
     private Artist artist;
-    private double solde = 0;
     private ArrayList<Artist> featurings = new ArrayList<>();
 
     public Titre(int duree, String nomTitre, String styleTitre, LocalDate dateSortie, Artist artist) {
@@ -65,20 +64,42 @@ public abstract class Titre {
         this.artist = artist;
     }
 
-    public double getSolde() {
-        return this.solde;
-    }
-
-    public void setSolde(double solde) {
-        this.solde = solde;
-    }
-
     public ArrayList<Artist> getFeaturings() {
         return this.featurings;
     }
 
     public void setFeaturings(ArrayList<Artist> featurings) {
         this.featurings = featurings;
+    }
+
+    public Titre duree(int duree) {
+        setDuree(duree);
+        return this;
+    }
+
+    public Titre nomTitre(String nomTitre) {
+        setNomTitre(nomTitre);
+        return this;
+    }
+
+    public Titre styleTitre(String styleTitre) {
+        setStyleTitre(styleTitre);
+        return this;
+    }
+
+    public Titre dateSortie(LocalDate dateSortie) {
+        setDateSortie(dateSortie);
+        return this;
+    }
+
+    public Titre artist(Artist artist) {
+        setArtist(artist);
+        return this;
+    }
+
+    public Titre featurings(ArrayList<Artist> featurings) {
+        setFeaturings(featurings);
+        return this;
     }
 
     @Override
@@ -91,12 +112,12 @@ public abstract class Titre {
         Titre titre = (Titre) o;
         return duree == titre.duree && Objects.equals(nomTitre, titre.nomTitre)
                 && Objects.equals(styleTitre, titre.styleTitre) && Objects.equals(dateSortie, titre.dateSortie)
-                && Objects.equals(artist, titre.artist) && solde == titre.solde;
+                && Objects.equals(artist, titre.artist) && Objects.equals(featurings, titre.featurings);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(duree, nomTitre, styleTitre, dateSortie, artist, solde);
+        return Objects.hash(duree, nomTitre, styleTitre, dateSortie, artist, featurings);
     }
 
     @Override
@@ -107,7 +128,7 @@ public abstract class Titre {
                 ", styleTitre='" + getStyleTitre() + "'" +
                 ", dateSortie='" + getDateSortie() + "'" +
                 ", artist='" + getArtist() + "'" +
-                ", solde='" + getSolde() + "'" +
+                ", featurings='" + getFeaturings() + "'" +
                 "}";
     }
 

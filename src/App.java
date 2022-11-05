@@ -19,8 +19,7 @@ public class App {
         client1.ecoute(somethingAboutUs);
         System.out.println("client1 = " + client1 + "\n");
         System.out.println("somethingAboutUs = " + somethingAboutUs + "\n");
-        System.out.println(somethingAboutUs.getSolde());
-        daftPunk.mettreAjourSolde();
+
         System.out.println("daftPunk = " + daftPunk + "\n");
 
     }

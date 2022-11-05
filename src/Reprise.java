@@ -18,10 +18,12 @@ public class Reprise extends Titre {
     }
 
     public void estEcoute(double prixAbonnementPar5minutes) {
-        setSolde(this.getDuree() / 300 * prixAbonnementPar5minutes * 2 / 3
-                / (1 + this.getFeaturings().size()));
+        double part = (float) this.getDuree() / 300 * prixAbonnementPar5minutes * 2 / 3
+                / (2 + this.getFeaturings().size());
+        this.getArtist().ajouterSolde(part);
+        this.artistReprenant.ajouterSolde(part);
         for (Artist a : this.getFeaturings()) {
-            a.setSolde(this.getSolde() + a.getSolde());
+            a.ajouterSolde(part);
         }
     }
 

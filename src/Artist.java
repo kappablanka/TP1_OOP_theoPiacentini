@@ -127,13 +127,7 @@ public class Artist extends Utilisateur {
         return flagValide;
     }
 
-    public void mettreAjourSolde() {
-        double somme = 0;
-        for (Titre t : listeTitres) {
-            somme += t.getSolde();
-            t.setSolde(0);
-        }
-        solde += somme;
-
+    public void ajouterSolde(double valeur) {
+        this.solde = valeur;
     }
 }
