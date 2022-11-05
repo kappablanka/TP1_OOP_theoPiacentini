@@ -79,6 +79,7 @@ public class Client extends Utilisateur {
     public void ecoute(Titre titre) {
         this.dureeEcoute += titre.getDuree();
         this.soldeDue += (titre.getDuree() / 300) * prixAbonnementPar5minutes;
+        titre.estEcoute(prixAbonnementPar5minutes);
     }
 
 }

@@ -111,4 +111,6 @@ public abstract class Titre {
                 "}";
     }
 
+    public abstract void estEcoute(double prixAbonnementPar5minutes);
+
 }

@@ -1,33 +1,28 @@
 
 import java.time.LocalDate;
-import java.util.Objects;
+import java.util.ArrayList;
 
 public class Reprise extends Titre {
     private Artist artistReprenant;
 
-    public Reprise(int duree, String nomTitre, String styleTitre, LocalDate dateSortie, Artist artist, double solde,
+    public Reprise(int duree, String nomTitre, String styleTitre, LocalDate dateSortie, Artist artist,
             Artist artistReprenant) {
-        super(duree, nomTitre, styleTitre, dateSortie, artistReprenant);
+        super(duree, nomTitre, styleTitre, dateSortie, artist);
         this.artistReprenant = artistReprenant;
     }
 
-    public Artist getArtistReprenant() {
-        return this.artistReprenant;
-    }
-
-    public void setArtistReprenant(Artist artistReprenant) {
+    public Reprise(int duree, String nomTitre, String styleTitre, LocalDate dateSortie, Artist artist,
+            ArrayList<Artist> featuring, Artist artistReprenant) {
+        super(duree, nomTitre, styleTitre, dateSortie, artist, featuring);
         this.artistReprenant = artistReprenant;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Reprise)) {
-            return false;
+    public void estEcoute(double prixAbonnementPar5minutes) {
+        setSolde(this.getDuree() / 300 * prixAbonnementPar5minutes * 2 / 3
+                / (1 + this.getFeaturings().size()));
+        for (Artist a : this.getFeaturings()) {
+            a.setSolde(this.getSolde() + a.getSolde());
         }
-        Reprise reprise = (Reprise) o;
-        return Objects.equals(artistReprenant, reprise.artistReprenant);
     }
 
 }

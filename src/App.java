@@ -3,8 +3,7 @@ import java.time.LocalDate;
 public class App {
     public static void main(String[] args) throws Exception {
         Artist daftPunk = new Artist("Daft Punk", "daft", "1234");
-        Original somethingAboutUs = new Original(150, "something about us", "electro",
-                LocalDate.of(2001, 1, 1),
+        Original somethingAboutUs = new Original(150, "something about us", "electro", LocalDate.of(2001, 1, 1),
                 daftPunk);
         System.out.println("somethingAboutUs = " + somethingAboutUs + "\n");
         System.out.println("daftPunk = " + daftPunk + "\n");
@@ -23,11 +22,6 @@ public class App {
         System.out.println(somethingAboutUs.getSolde());
         daftPunk.mettreAjourSolde();
         System.out.println("daftPunk = " + daftPunk + "\n");
-        daftPunk.retirerArgent(0.02);
-        System.out.println("daftPunk = " + daftPunk + "\n");
-        daftPunk.retirerArgent(0.01);
-        System.out.println("daftPunk = " + daftPunk + "\n");
-        System.out.println("client1 = " + client1 + "\n");
 
     }
 }
