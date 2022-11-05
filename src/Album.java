@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Album {
     private String nomAlbum;
     private String styleAlbum;
+    private ArrayList<Titre> listeTitres = new ArrayList<>();
 
     public Album(String nomAlbum, String styleAlbum) {
         this.nomAlbum = nomAlbum;
@@ -28,6 +30,14 @@ public class Album {
         this.styleAlbum = styleAlbum;
     }
 
+    public ArrayList<Titre> getListeTitres() {
+        return this.listeTitres;
+    }
+
+    public void setListeTitres(ArrayList<Titre> listeTitres) {
+        this.listeTitres = listeTitres;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -36,12 +46,13 @@ public class Album {
             return false;
         }
         Album album = (Album) o;
-        return Objects.equals(nomAlbum, album.nomAlbum) && Objects.equals(styleAlbum, album.styleAlbum);
+        return Objects.equals(nomAlbum, album.nomAlbum) && Objects.equals(styleAlbum, album.styleAlbum)
+                && Objects.equals(listeTitres, album.listeTitres);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nomAlbum, styleAlbum);
+        return Objects.hash(nomAlbum, styleAlbum, listeTitres);
     }
 
     @Override
@@ -49,6 +60,7 @@ public class Album {
         return "{" +
                 " nomAlbum='" + getNomAlbum() + "'" +
                 ", styleAlbum='" + getStyleAlbum() + "'" +
+                ", listeTitres='" + getListeTitres() + "'" +
                 "}";
     }
 

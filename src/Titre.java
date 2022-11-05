@@ -1,20 +1,24 @@
 import java.sql.Date;
 import java.util.Objects;
 
-public class Titre {
+public abstract class Titre {
     private int duree;
     private String nomTitre;
     private String styleTitre;
     private Date dateSortie;
+    private Artist artist;
+    private double solde;
 
     public Titre() {
     }
 
-    public Titre(int duree, String nomTitre, String styleTitre, Date dateSortie) {
+    public Titre(int duree, String nomTitre, String styleTitre, Date dateSortie, Artist artist, double solde) {
         this.duree = duree;
         this.nomTitre = nomTitre;
         this.styleTitre = styleTitre;
         this.dateSortie = dateSortie;
+        this.artist = artist;
+        this.solde = solde;
     }
 
     public int getDuree() {
@@ -49,6 +53,52 @@ public class Titre {
         this.dateSortie = dateSortie;
     }
 
+    public Artist getArtist() {
+        return this.artist;
+    }
+
+    public void setArtist(Artist artist) {
+        this.artist = artist;
+    }
+
+    public double getSolde() {
+        return this.solde;
+    }
+
+    public void setSolde(double solde) {
+        this.solde = solde;
+    }
+
+    public Titre duree(int duree) {
+        setDuree(duree);
+        return this;
+    }
+
+    public Titre nomTitre(String nomTitre) {
+        setNomTitre(nomTitre);
+        return this;
+    }
+
+    public Titre styleTitre(String styleTitre) {
+        setStyleTitre(styleTitre);
+        return this;
+    }
+
+    public Titre dateSortie(Date dateSortie) {
+        setDateSortie(dateSortie);
+        return this;
+    }
+
+    public Titre artist(Artist artist) {
+        setArtist(artist);
+        return this;
+    }
+
+    public Titre solde(double solde) {
+        setSolde(solde);
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -58,12 +108,13 @@ public class Titre {
         }
         Titre titre = (Titre) o;
         return duree == titre.duree && Objects.equals(nomTitre, titre.nomTitre)
-                && Objects.equals(styleTitre, titre.styleTitre);
+                && Objects.equals(styleTitre, titre.styleTitre) && Objects.equals(dateSortie, titre.dateSortie)
+                && Objects.equals(artist, titre.artist) && solde == titre.solde;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(duree, nomTitre, styleTitre);
+        return Objects.hash(duree, nomTitre, styleTitre, dateSortie, artist, solde);
     }
 
     @Override
@@ -72,6 +123,9 @@ public class Titre {
                 " duree='" + getDuree() + "'" +
                 ", nomTitre='" + getNomTitre() + "'" +
                 ", styleTitre='" + getStyleTitre() + "'" +
+                ", dateSortie='" + getDateSortie() + "'" +
+                ", artist='" + getArtist() + "'" +
+                ", solde='" + getSolde() + "'" +
                 "}";
     }
 

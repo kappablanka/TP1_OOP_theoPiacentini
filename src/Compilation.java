@@ -1,15 +1,18 @@
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Compilation {
     private String nomCompilation;
     private String styleCompilation;
+    private ArrayList<Titre> listeTitres = new ArrayList<>();
 
     public Compilation() {
     }
 
-    public Compilation(String nomCompilation, String styleCompilation) {
+    public Compilation(String nomCompilation, String styleCompilation, ArrayList<Titre> listeTitres) {
         this.nomCompilation = nomCompilation;
         this.styleCompilation = styleCompilation;
+        this.listeTitres = listeTitres;
     }
 
     public String getNomCompilation() {
@@ -28,8 +31,26 @@ public class Compilation {
         this.styleCompilation = styleCompilation;
     }
 
+    public ArrayList<Titre> getListeTitres() {
+        return this.listeTitres;
+    }
+
+    public void setListeTitres(ArrayList<Titre> listeTitres) {
+        this.listeTitres = listeTitres;
+    }
+
     public Compilation nomCompilation(String nomCompilation) {
         setNomCompilation(nomCompilation);
+        return this;
+    }
+
+    public Compilation styleCompilation(String styleCompilation) {
+        setStyleCompilation(styleCompilation);
+        return this;
+    }
+
+    public Compilation listeTitres(ArrayList<Titre> listeTitres) {
+        setListeTitres(listeTitres);
         return this;
     }
 
@@ -42,12 +63,13 @@ public class Compilation {
         }
         Compilation compilation = (Compilation) o;
         return Objects.equals(nomCompilation, compilation.nomCompilation)
-                && Objects.equals(styleCompilation, compilation.styleCompilation);
+                && Objects.equals(styleCompilation, compilation.styleCompilation)
+                && Objects.equals(listeTitres, compilation.listeTitres);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nomCompilation, styleCompilation);
+        return Objects.hash(nomCompilation, styleCompilation, listeTitres);
     }
 
     @Override
@@ -55,6 +77,8 @@ public class Compilation {
         return "{" +
                 " nomCompilation='" + getNomCompilation() + "'" +
                 ", styleCompilation='" + getStyleCompilation() + "'" +
+                ", listeTitres='" + getListeTitres() + "'" +
                 "}";
     }
+
 }
