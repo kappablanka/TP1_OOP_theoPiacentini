@@ -1,28 +1,27 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Objects;
 
 public abstract class Titre {
     private int duree;
     private String nomTitre;
     private String styleTitre;
-    private Date dateSortie;
+    private LocalDate dateSortie;
     private Artist artist;
-    private double solde;
+    private double solde = 0;
     private ArrayList<Artist> featurings = new ArrayList<>();
 
-    public Titre(int duree, String nomTitre, String styleTitre, Date dateSortie, Artist artist, double solde) {
+    public Titre(int duree, String nomTitre, String styleTitre, LocalDate dateSortie, Artist artist) {
         this.duree = duree;
         this.nomTitre = nomTitre;
         this.styleTitre = styleTitre;
         this.dateSortie = dateSortie;
         this.artist = artist;
-        this.solde = solde;
     }
 
-    public Titre(int duree, String nomTitre, String styleTitre, Date dateSortie, Artist artist, double solde,
+    public Titre(int duree, String nomTitre, String styleTitre, LocalDate dateSortie, Artist artist,
             ArrayList<Artist> featuring) {
-        this(duree, nomTitre, styleTitre, dateSortie, artist, solde);
+        this(duree, nomTitre, styleTitre, dateSortie, artist);
         this.featurings = featuring;
     }
 
@@ -50,11 +49,11 @@ public abstract class Titre {
         this.styleTitre = styleTitre;
     }
 
-    public Date getDateSortie() {
+    public LocalDate getDateSortie() {
         return this.dateSortie;
     }
 
-    public void setDateSortie(Date dateSortie) {
+    public void setDateSortie(LocalDate dateSortie) {
         this.dateSortie = dateSortie;
     }
 

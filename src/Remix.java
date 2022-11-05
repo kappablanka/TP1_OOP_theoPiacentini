@@ -1,11 +1,11 @@
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Remix extends Titre {
     public Artist artisteRemixant;
 
-    public Remix(int duree, String nomTitre, String styleTitre, Date dateSortie, Artist artist, double solde,
+    public Remix(int duree, String nomTitre, String styleTitre, LocalDate dateSortie, Artist artist,
             Artist artisteRemixant) {
-        super(duree, nomTitre, styleTitre, dateSortie, artisteRemixant, solde);
+        super(duree, nomTitre, styleTitre, dateSortie, artist);
         this.artisteRemixant = artisteRemixant;
     }
 

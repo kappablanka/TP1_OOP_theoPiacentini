@@ -1,12 +1,13 @@
-import java.util.Date;
+
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Reprise extends Titre {
     private Artist artistReprenant;
 
-    public Reprise(int duree, String nomTitre, String styleTitre, Date dateSortie, Artist artist, double solde,
+    public Reprise(int duree, String nomTitre, String styleTitre, LocalDate dateSortie, Artist artist, double solde,
             Artist artistReprenant) {
-        super(duree, nomTitre, styleTitre, dateSortie, artistReprenant, solde);
+        super(duree, nomTitre, styleTitre, dateSortie, artistReprenant);
         this.artistReprenant = artistReprenant;
     }
 
