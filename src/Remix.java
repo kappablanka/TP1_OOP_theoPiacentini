@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Remix extends Titre {
     private Artist artisteRemixant;
