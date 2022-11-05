@@ -6,9 +6,13 @@ public class Artist extends Utilisateur {
     private ArrayList<Titre> listeTitres = new ArrayList<>();
     private ArrayList<Album> listeAlbums = new ArrayList<>();
     private ArrayList<Playlist> listePlaylist = new ArrayList<>();
-    private double solde;
+    private double solde = 0;
 
-    public Artist(String nom) {
+    public Artist() {
+    }
+
+    public Artist(String nom, String pseudo, String hashMotDePasse) {
+        super(pseudo, hashMotDePasse);
         this.nom = nom;
     }
 
@@ -44,6 +48,39 @@ public class Artist extends Utilisateur {
         this.listePlaylist = listePlaylist;
     }
 
+    public double getSolde() {
+        return this.solde;
+    }
+
+    public void setSolde(double solde) {
+        this.solde = solde;
+    }
+
+    public Artist nom(String nom) {
+        setNom(nom);
+        return this;
+    }
+
+    public Artist listeTitres(ArrayList<Titre> listeTitres) {
+        setListeTitres(listeTitres);
+        return this;
+    }
+
+    public Artist listeAlbums(ArrayList<Album> listeAlbums) {
+        setListeAlbums(listeAlbums);
+        return this;
+    }
+
+    public Artist listePlaylist(ArrayList<Playlist> listePlaylist) {
+        setListePlaylist(listePlaylist);
+        return this;
+    }
+
+    public Artist solde(double solde) {
+        setSolde(solde);
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -52,16 +89,21 @@ public class Artist extends Utilisateur {
             return false;
         }
         Artist artist = (Artist) o;
-        return Objects.equals(nom, artist.nom);
+        return Objects.equals(nom, artist.nom) && Objects.equals(listeTitres, artist.listeTitres)
+                && Objects.equals(listeAlbums, artist.listeAlbums)
+                && Objects.equals(listePlaylist, artist.listePlaylist) && solde == artist.solde;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nom, listeTitres, listeAlbums, listePlaylist, solde);
     }
 
     @Override
     public String toString() {
         return "{" +
                 " nom='" + getNom() + "'" +
-                ", listeTitres='" + getListeTitres() + "'" +
-                ", listeAlbums='" + getListeAlbums() + "'" +
-                ", listePlaylist='" + getListePlaylist() + "'" +
+                ", solde='" + getSolde() + "'" +
                 "}";
     }
 
@@ -79,12 +121,14 @@ public class Artist extends Utilisateur {
         if (montant <= solde) {
             this.solde -= montant;
             flagValide = true;
+        } else {
+            System.out.println("Erreur solde trop petit ! solde = " + this.solde);
         }
         return flagValide;
     }
 
     public void mettreAjourSolde() {
-        int somme = 0;
+        double somme = 0;
         for (Titre t : listeTitres) {
             somme += t.getSolde();
             t.setSolde(0);

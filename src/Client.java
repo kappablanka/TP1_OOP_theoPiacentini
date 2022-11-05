@@ -6,10 +6,9 @@ public class Client extends Utilisateur {
     private double soldeDue = 0;
     private double prixAbonnementPar5minutes;
 
-    public Client(String typeAbbonement, int dureeEcoute, double soldeDue) {
+    public Client(String typeAbbonement, String pseudo, String hashMotDePasse) {
+        super(pseudo, hashMotDePasse);
         this.typeAbbonement = typeAbbonement;
-        this.dureeEcoute = dureeEcoute;
-        this.soldeDue = soldeDue;
         if (typeAbbonement == "normal") {
             this.prixAbonnementPar5minutes = 0.02;
         } else if (typeAbbonement == "premium") {
