@@ -3,17 +3,20 @@ import java.util.ArrayList;
 
 public class Remix extends Titre {
     private Artist artisteRemixant;
+    private Titre chansonOriginal;
 
     public Remix(int duree, String nomTitre, String styleTitre, LocalDate dateSortie, Artist artist,
-            Artist artisteRemixant) {
+            Artist artisteRemixant, Titre chansonOriginal) {
         super(duree, nomTitre, styleTitre, dateSortie, artist);
         this.artisteRemixant = artisteRemixant;
+        this.chansonOriginal = chansonOriginal;
     }
 
     public Remix(int duree, String nomTitre, String styleTitre, LocalDate dateSortie, Artist artist,
-            ArrayList<Artist> featuring, Artist artisteRemixant) {
+            ArrayList<Artist> featuring, Artist artisteRemixant, Titre chansonOriginal) {
         super(duree, nomTitre, styleTitre, dateSortie, artist, featuring);
         this.artisteRemixant = artisteRemixant;
+        this.chansonOriginal = chansonOriginal;
     }
 
     public void estEcoute(double prixAbonnementPar5minutes) {
@@ -32,6 +35,14 @@ public class Remix extends Titre {
 
     public void setArtisteRemixant(Artist artisteRemixant) {
         this.artisteRemixant = artisteRemixant;
+    }
+
+    public Titre getChansonOriginal() {
+        return this.chansonOriginal;
+    }
+
+    public void setChansonOriginal(Titre chansonOriginal) {
+        this.chansonOriginal = chansonOriginal;
     }
 
 }

@@ -128,6 +128,6 @@ public class Artist extends Utilisateur {
     }
 
     public void ajouterSolde(double valeur) {
-        this.solde = valeur;
+        this.solde += valeur;
     }
 }

@@ -80,6 +80,21 @@ public class Client extends Utilisateur {
         this.dureeEcoute += titre.getDuree();
         this.soldeDue += (titre.getDuree() / 300) * prixAbonnementPar5minutes;
         titre.estEcoute(prixAbonnementPar5minutes);
+        System.out.println(this.getPseudo() + "à écouter le titre:" + titre.getNomTitre());
+    }
+
+    public void ecoute(Playlist playlist) {
+        for (Titre t : playlist.getListeTitres()) {
+            t.estEcoute(prixAbonnementPar5minutes);
+        }
+        System.out.println(this.getPseudo() + "à écouter la playlist:" + playlist.getNomPlaylist());
+    }
+
+    public void ecoute(Album album) {
+        for (Titre t : album.getListeTitres()) {
+            t.estEcoute(prixAbonnementPar5minutes);
+        }
+        System.out.println(this.getPseudo() + "à écouter la playlist:" + album.getNomAlbum());
     }
 
 }
